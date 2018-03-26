@@ -23,9 +23,8 @@ def print_top_ten(filename):
         else:
             frequency_of_words[word] += 1
     items = [(v, k) for k, v in frequency_of_words.items()]
-    items.sort()
-    items.reverse()
-    top_ten = items[:10]
+    sorted_items = sorted(items, key=lambda x: x[1], reverse=True)
+    top_ten = sorted_items[:10]
     print('топ 10 самых часто встречающихся в новостях слов длиннее 6 символов в файле {}:'.format(filename))
     for k, v in top_ten:
         print('\t{0} - {1} раз'.format(v, k))
